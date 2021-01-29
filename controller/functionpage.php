@@ -9,7 +9,7 @@ class User extends MyConnection
         $this->con = parent::__construct();
     }
 
-    
+
 
     public function addStaff($fields, $values)
     {
@@ -43,18 +43,17 @@ class User extends MyConnection
 
     public function checkMail($email)
     {
-        $query = "SELECT email FROM kpi WHERE email= '$email' ";
+        $query = "SELECT * FROM kpi WHERE email= '$email' ";
         $result = $this->con->query($query);
-
-        return  $result->num_rows;
+        if ($row = $result->fetch_assoc($query))
+            return  $row;
     }
 
-    public function verifyToken($email){
+    public function verifyToken($email)
+    {
 
-        $query= "SELECT * FROM staff WHERE email='$email' ";
+        $query = "SELECT * FROM staff WHERE email='$email' ";
         $result = $this->con->query($query);
         return $result;
     }
-
-    
 }

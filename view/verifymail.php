@@ -77,7 +77,7 @@
                     body: formdata
                 });
                 const result = res.json;
-                if (result.status) {
+                if (result.status = 'true') {
 
                     document.getElementById("enter-email").classList.add("hide");
                     document.getElementById("tokendiv").classList.remove("hide");
@@ -88,7 +88,7 @@
                     alert("Email does not exist");
 
                 }
-     
+
             }
 
             submit.addEventListener("click", e => {
