@@ -45,8 +45,8 @@ class User extends MyConnection
     {
         $query = "SELECT * FROM kpi WHERE email= '$email' ";
         $result = $this->con->query($query);
-        if ($row = $result->fetch_assoc($query))
-            return  $row;
+
+        return  $result;
     }
 
     public function verifyToken($email)
